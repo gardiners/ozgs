@@ -1,14 +1,24 @@
 Package: ozgs
-Title: What the Package Does (One Line, Title Case)
+Title: Access Australian Statistical Geography Standard Map Services
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Sam", "Gardiner", , "sam.gardiner@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-6752-6969"))
+Description: Access maps, layers and data provided by the Australian Statistical
+  Geography Standard (ASGS) via the ABS web service. Available spatial objects
+  include Indigenous Structures, Statistical Areas (SA1, SA2, SA3 and SA4), states
+  and territories, postcode approximations (POAs), suburbs and localities, local
+  government areas (LGAs), state and federal electorates, remotness areas and the 
+  mesh blocks from which each of these are constructed. Requests are cached to
+  avoid repeatedly fetching large quantities of data from the ABS web servers.
+  Convenience functions are provided to simplify geometries as they are fetched,
+  for quick and simple plotting in R.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.0
 URL: https://github.com/gardiners/ozgs
 BugReports: https://github.com/gardiners/ozgs/issues
+Imports: 
+    arcgislayers,
+    rmapshaper
