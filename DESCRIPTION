@@ -22,3 +22,5 @@ BugReports: https://github.com/gardiners/ozgs/issues
 Imports: 
     arcgislayers,
     rmapshaper
+Depends: 
+    R (>= 2.10)
