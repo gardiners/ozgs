@@ -20,17 +20,30 @@ get_geography <- function(geography,
                           where = NULL,
                           filter_geom = NULL,
                           predicate = "intersects",
+                          cache = getOption("ozgs.cache"),
                           ...) {
   geography <- match.arg(geography, unique(services$geography))
   layer <- match.arg(layer)
   furl <- get_service_url(geography, edition, reference_date, layer)
 
-  service <- arcgislayers::arc_open(furl)
-  arcgislayers::arc_select(x = service,
-                           where = where,
-                           filter_geom = filter_geom,
-                           predicate = predicate,
-                           ...)
+  # Try the cache
+  key <- asgs_key(geography, edition, reference_date, layer, where, filter_geom,
+                  predicate, ...)
+  result <- cache$get(key)
+
+  if (cachem::is.key_missing(result)) {
+    # Cache miss: fetch the requested objects from the web service and store
+    fresh_result <- arcgislayers::arc_read(url = furl,
+                                           where = where,
+                                           filter_geom = filter_geom,
+                                           predicate = predicate,
+                                           ...)
+    cache$set(key, fresh_result)
+    fresh_result
+  } else {
+    # Cache hit
+    result
+  }
 }
 
 get_service_url <- function(geography, edition, reference_date, layer) {

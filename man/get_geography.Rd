@@ -12,6 +12,7 @@ get_geography(
   where = NULL,
   filter_geom = NULL,
   predicate = "intersects",
+  cache = getOption("ozgs.cache"),
   ...
 )
 }
