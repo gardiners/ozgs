@@ -8,11 +8,9 @@ Description: Access maps, layers and data provided by the Australian Statistical
   Geography Standard (ASGS) via the ABS web service. Available spatial objects
   include Indigenous Structures, Statistical Areas (SA1, SA2, SA3 and SA4), states
   and territories, postcode approximations (POAs), suburbs and localities, local
-  government areas (LGAs), state and federal electorates, remotness areas and the 
+  government areas (LGAs), state and federal electorates, remoteness areas and the 
   mesh blocks from which each of these are constructed. Requests are cached to
   avoid repeatedly fetching large quantities of data from the ABS web servers.
-  Convenience functions are provided to simplify geometries as they are fetched,
-  for quick and simple plotting in R.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
