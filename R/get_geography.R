@@ -3,6 +3,7 @@
 #' @param geography
 #' @param edition
 #' @param reference_date
+#' @param layer
 #' @param where
 #' @param filter_geom
 #' @param predicate
@@ -15,14 +16,16 @@
 get_geography <- function(geography,
                           edition = NULL,
                           reference_date = NULL,
+                          layer = c("gen", "full", "point"),
                           where = NULL,
                           filter_geom = NULL,
                           predicate = "intersects",
                           ...) {
   geography <- match.arg(geography, unique(services$geography))
-  furl <- get_service_url(geography, edition, reference_date)
+  layer <- match.arg(layer)
+  furl <- get_service_url(geography, edition, reference_date, layer)
 
-  service <- arcgislayers::arc_open(paste0(furl, "/1"))
+  service <- arcgislayers::arc_open(furl)
   arcgislayers::arc_select(x = service,
                            where = where,
                            filter_geom = filter_geom,
@@ -30,12 +33,16 @@ get_geography <- function(geography,
                            ...)
 }
 
-get_service_url <- function(geography, edition, reference_date) {
+get_service_url <- function(geography, edition, reference_date, layer) {
+  url_suffix <- switch(layer,
+                       "gen" = "/1",
+                       "full" = "/0",
+                       "point" = "/2")
   candidates <- services[geography %maybe% services$geography &
                            edition %maybe% services$edition &
                            reference_date %maybe% services$reference_date,]
   check_specificity(candidates, geography, edition, reference_date)
-  candidates$url
+  paste0(candidates$url, url_suffix)
 }
 
 check_specificity <- function(candidates,

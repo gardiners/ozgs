@@ -8,6 +8,7 @@ get_geography(
   geography,
   edition = NULL,
   reference_date = NULL,
+  layer = c("gen", "full", "point"),
   where = NULL,
   filter_geom = NULL,
   predicate = "intersects",
