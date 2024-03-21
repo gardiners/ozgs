@@ -15,3 +15,10 @@ asgs_key <- function(geography, edition, reference_date, layer, where,
     paste(collapse = "") |>
     tolower()
 }
+
+# Use a memory cache by default
+rlang::on_load({
+  if (is.null(getOption("ozgs.cache"))) {
+    options("ozgs.cache" = cachem::cache_mem())
+  }
+})
