@@ -7,6 +7,8 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![runiverse-package badge for ozgs
+package](https://gardiners.r-universe.dev/badges/ozgs)](https://gardiners.r-universe.dev/ozgs)
 <!-- badges: end -->
 
 `ozgs` fetches and caches `sf` geometries and data from the [Australian
@@ -22,6 +24,13 @@ You can install the development version of `ozgs` from
 ``` r
 # install.packages("devtools")
 devtools::install_github("gardiners/ozgs")
+```
+
+Or from [r-universe](https://r-universe.dev) with:
+
+``` r
+install.packages('ozgs', repos = c('https://gardiners.r-universe.dev',
+                                   'https://cloud.r-project.org'))
 ```
 
 ## Available geometries
