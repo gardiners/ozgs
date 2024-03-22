@@ -1,6 +1,6 @@
 Package: ozgs
-Title: Access Australian Statistical Geography Standard Map Services
-Version: 0.0.0.9000
+Title: Access the Australian Statistical Geography Standard
+Version: 0.0.1
 Authors@R: 
     person("Sam", "Gardiner", , "sam.gardiner@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6752-6969"))
