@@ -21,6 +21,7 @@ Imports:
     arcgislayers,
     cachem,
     cli,
+    purrr,
     rlang
 Depends: 
     R (>= 2.10)
