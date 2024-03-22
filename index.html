@@ -123,6 +123,9 @@
 <span><span class="va">sydney_sa1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_geography.html">get_geography</a></span><span class="op">(</span><span class="st">"SA1"</span>,</span>
 <span>                            edition <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>                            filter_geom <span class="op">=</span> <span class="va">sydney_lga</span><span class="op">$</span><span class="va">geometry</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ! `filter_geom` cannot be a "MULTIPOLYGON" geometry.</span></span>
+<span><span class="co">#&gt; ℹ Using `sf::st_union()` and `sf::st_cast()` to create a "POLYGON" for</span></span>
+<span><span class="co">#&gt;   `filter_geom`.</span></span>
 <span></span>
 <span><span class="fu">ggplot</span><span class="op">(</span><span class="va">sydney_sa1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_sf</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -172,6 +175,7 @@
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://gardiners.r-universe.dev/ozgs" class="external-link"><img src="https://gardiners.r-universe.dev/badges/ozgs" alt="runiverse-package badge for ozgs package"></a></li>
+<li><a href="https://github.com/gardiners/ozgs/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/gardiners/ozgs/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
