@@ -9,6 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![runiverse-package badge for ozgs
 package](https://gardiners.r-universe.dev/badges/ozgs)](https://gardiners.r-universe.dev/ozgs)
+[![R-CMD-check](https://github.com/gardiners/ozgs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gardiners/ozgs/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 `ozgs` fetches and caches `sf` geometries and data from the [Australian
@@ -100,6 +101,9 @@ sydney_lga <- get_geography("LGA",
 sydney_sa1 <- get_geography("SA1",
                             edition = 3,
                             filter_geom = sydney_lga$geometry)
+#> ! `filter_geom` cannot be a "MULTIPOLYGON" geometry.
+#> ℹ Using `sf::st_union()` and `sf::st_cast()` to create a "POLYGON" for
+#>   `filter_geom`.
 
 ggplot(sydney_sa1) +
   geom_sf()

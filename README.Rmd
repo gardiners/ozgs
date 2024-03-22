@@ -20,6 +20,7 @@ options("ozgs.cache" = cachem::cache_disk("./readme_cache"))
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![runiverse-package badge for ozgs package](https://gardiners.r-universe.dev/badges/ozgs)](https://gardiners.r-universe.dev/ozgs)
+[![R-CMD-check](https://github.com/gardiners/ozgs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gardiners/ozgs/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 `ozgs` fetches and caches `sf` geometries and data from the [Australian Statistical Geography Standard](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/data-services-and-apis) (ASGS) web service.
