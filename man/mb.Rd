@@ -52,7 +52,7 @@ Fetch ASGS geometries for Mesh Blocks (MBs).
 }
 \details{
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
-   geography \tab edition \tab reference_date \cr
+   \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    MB \tab 1 \tab 2011 \cr
    MB \tab 2 \tab 2016 \cr
    MB \tab 3 \tab 2021 \cr

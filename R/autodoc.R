@@ -17,5 +17,8 @@ service_tbl <- function(geography_name) {
     dplyr::filter(geography == geography_name) |>
     dplyr::select(geography, edition, reference_date) |>
     dplyr::arrange(reference_date) |>
-    knitr::kable(format = "pipe")
+    knitr::kable(format = "pipe",
+                 col.names = c("**`geography`**",
+                               "**`edition`**",
+                               "**`reference_date`**"))
 }

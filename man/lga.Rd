@@ -52,7 +52,7 @@ Fetch ASGS geometries for Local Government Areas (LGAs).
 }
 \details{
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
-   geography \tab edition \tab reference_date \cr
+   \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    LGA \tab 1 \tab 2011 \cr
    LGA \tab 1 \tab 2012 \cr
    LGA \tab 1 \tab 2013 \cr
