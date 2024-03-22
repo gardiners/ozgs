@@ -1,7 +1,8 @@
 #' Generate a human-readable cache key from a specification for an ASGS request
 #'
-#' @inheritParams get_geograpghy
+#' @inheritParams get_geography
 #' @return Returns a (somewhat) descriptive key.
+#' @noRd
 asgs_key <- function(geography, edition, reference_date, layer, where,
                      filter_geom, predicate, ...) {
   c("asgs",
