@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_geography.R
 \name{get_geography}
 \alias{get_geography}
-\title{Fetch a geography from the ASGS web service}
+\title{Get a geography from the ASGS web service}
 \usage{
 get_geography(
   geography,
@@ -11,14 +11,52 @@ get_geography(
   layer = c("gen", "full", "point"),
   where = NULL,
   filter_geom = NULL,
-  predicate = "intersects",
+  predicate = c("intersects", "contains", "crosses", "overlaps", "touches", "within"),
   cache = getOption("ozgs.cache"),
   ...
 )
 }
 \arguments{
-\item{...}{}
+\item{geography}{The name of the ASGS geography to download. Valid choices
+are ADD, AUS, CED, DZN, GCCSA, IARE, ILOC, IREG, LGA, MB, NRMR, POA, RA, S, SA1, SA2, SA3, SA4, ..., TR, and UCL.}
+
+\item{edition}{An ASGS edition: \code{1}, \code{2}, or \code{3}.}
+
+\item{reference_date}{The geography's year of release. For most geographies,
+\code{reference_year} is optional and specifying an \code{edition} will be
+sufficient. However, for LGAs, CEDs and SEDs, the ASGS contains multiple
+releases per edition. For these geographies, a \code{reference_date} must be
+supplied to uniquely identify a release.}
+
+\item{layer}{One of:
+\itemize{
+\item \code{"gen"}, the default. Fetches simplified geometries that have been generalised to 0.000025° or 2.5m.
+\item \code{"full"}, full ASGS geometries. Identical to ASGS Shapefile and Geopackage downloads.
+\item \code{"point"}, point geometries for each records in a geography.
+}}
+
+\item{where}{An optional SQL WHERE clause to filter the records returned by
+the request.}
+
+\item{filter_geom}{An optional \code{\link[sf:sfc]{sf::sfc}} or single \code{sf} geometry to filter
+the records returned by the request.}
+
+\item{predicate}{An optional spatial predicate to specify the relation
+between \code{filter_geom} and \code{geography}. One of \code{"intersects"}, \code{"contains"},
+\code{"crosses"}, \code{"overlaps"}, \code{"touches"}, and \code{"within"}.}
+
+\item{cache}{A \code{cachem}-compatible cache. If not otherwise specified,
+defaults to a memory cache. To persistently store downloaded ASGS
+geometries and data, supply an object created by \code{\link[cachem:cache_disk]{cachem::cache_disk()}}.}
+
+\item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
+}
+\value{
+Returns a \code{sf} spatial data frame with geometry and data for the
+requested ASGS geography.
 }
 \description{
-Fetch a geography from the ASGS web service
+\code{get_geography()} downloads and caches the geometries and data defined by a
+specified ASGS geography, with optional filtering using SQL or spatial
+queries.
 }

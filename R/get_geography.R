@@ -1,25 +1,44 @@
-#' Fetch a geography from the ASGS web service
+#' Get a geography from the ASGS web service
 #'
-#' @param geography
-#' @param edition
-#' @param reference_date
-#' @param layer
-#' @param where
-#' @param filter_geom
-#' @param predicate
-#' @param ...
+#' `get_geography()` downloads and caches the geometries and data defined by a
+#' specified ASGS geography, with optional filtering using SQL or spatial
+#' queries.
 #'
-#' @return
+#' @param geography The name of the ASGS geography to download. Valid choices
+#'   are `r cli::pluralize("{sort(unique(services$geography))}")`.
+#' @param edition An ASGS edition: `1`, `2`, or `3`.
+#' @param reference_date The geography's year of release. For most geographies,
+#'   `reference_year` is optional and specifying an `edition` will be
+#'   sufficient. However, for LGAs, CEDs and SEDs, the ASGS contains multiple
+#'   releases per edition. For these geographies, a `reference_date` must be
+#'   supplied to uniquely identify a release.
+#' @param layer One of:
+#'  - `"gen"`, the default. Fetches simplified geometries that have been generalised to 0.000025° or 2.5m.
+#'  - `"full"`, full ASGS geometries. Identical to ASGS Shapefile and Geopackage downloads.
+#'  - `"point"`, point geometries for each records in a geography.
+#' @param where An optional SQL WHERE clause to filter the records returned by
+#'   the request.
+#' @param filter_geom An optional [`sf::sfc`] or single `sf` geometry to filter
+#'   the records returned by the request.
+#' @param predicate An optional spatial predicate to specify the relation
+#'   between `filter_geom` and `geography`. One of `"intersects"`, `"contains"`,
+#'   `"crosses"`, `"overlaps"`, `"touches"`, and `"within"`.
+#' @param cache A `cachem`-compatible cache. If not otherwise specified,
+#'   defaults to a memory cache. To persistently store downloaded ASGS
+#'   geometries and data, supply an object created by [cachem::cache_disk()].
+#' @param ... Additional arguments passed to [arcgislayers::arc_read()].
+#'
+#' @return Returns a `sf` spatial data frame with geometry and data for the
+#'   requested ASGS geography.
 #' @export
-#'
-#' @examples
 get_geography <- function(geography,
                           edition = NULL,
                           reference_date = NULL,
                           layer = c("gen", "full", "point"),
                           where = NULL,
                           filter_geom = NULL,
-                          predicate = "intersects",
+                          predicate = c("intersects", "contains", "crosses",
+                                        "overlaps", "touches", "within"),
                           cache = getOption("ozgs.cache"),
                           ...) {
   geography <- match.arg(geography, unique(services$geography))
