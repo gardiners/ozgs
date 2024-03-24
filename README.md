@@ -61,70 +61,62 @@ and the [mesh
 blocks](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/main-structure-and-greater-capital-city-statistical-areas/mesh-blocks)
 from which each of these are constructed.
 
-`ozgs` uses [`arcgislayers`](https://github.com/R-ArcGIS/arcgislayers)📦
-for easy querying, filtering and spatial queries.
-
 ## Caching
 
-Requests are cached to avoid repeatedly fetching large quantities of
-data from the ABS servers. By default, `ozgs` creates a simple memory
-cache using `cachem::cache_mem()`, which persists for your current
-session. To persistently store ASGS geometries locally (or elsewhere),
-you can use any `cachem`-compatible cache function.
+Requests are cached to avoid repeatedly fetching data from the ABS
+servers. By default, `ozgs` creates a simple memory cache using
+`cachem::cache_mem()`, which persists for your current R session. To
+persistently store ASGS geometries locally (or elsewhere), you can use
+any `cachem`-compatible cache function.
 
-## Usage
+## Usage examples
 
-Plot Tasmania’s coastlines, using data from the 1st edition of the ASGS:
+Get Tasmania’s boundaries from the STE (State and Territory) geography
+defined in the 1st edition of the ASGS:
 
 ``` r
 library(ozgs)
 library(ggplot2)
 
+tas <- ste("Tasmania", edition = 1)
+
 theme_set(theme_void())
-
-tas <- get_geography("STE", edition = 1, where = "STE_NAME = 'Tasmania'")
-
 ggplot(tas) +
   geom_sf()
 ```
 
 <img src="man/figures/README-example-tas-1.png" width="100%" />
 
-Fetch every 3rd-edition SA1 that intersects the Sydney Local Government
-Area, at its extent in 2023:
+Get every postcode in Greater Melbourne:
 
 ``` r
-sydney_lga <- get_geography("LGA",
-                            reference_date = 2023,
-                            where = "LGA_NAME_2023 = 'Sydney'")
-
-sydney_sa1 <- get_geography("SA1",
-                            edition = 3,
-                            filter_geom = sydney_lga$geometry)
+melbourne_gccsa <- gccsa("Greater Melbourne", edition = 3)
+melbourne_poa <- poa(edition = 3, filter_geom = melbourne_gccsa$geometry)
 #> ! `filter_geom` cannot be a "MULTIPOLYGON" geometry.
 #> ℹ Using `sf::st_union()` and `sf::st_cast()` to create a "POLYGON" for
 #>   `filter_geom`.
 
-ggplot(sydney_sa1) +
+ggplot(melbourne_poa) +
   geom_sf()
 ```
 
-<img src="man/figures/README-example-syd-1.png" width="100%" />
+<img src="man/figures/README-example-melbourne-1.png" width="100%" />
 
-Store cached geometries within your working directory for reuse in other
-sessions (especially helpful if you’re working in
+You can store cached geometries within your working directory for reuse
+in other sessions. This is especially helpful if you’re working in
 [RMarkdown](https://rmarkdown.rstudio.com/) or
 [Quarto](https://quarto.org/docs/computations/r.html), which start a
-fresh session on each render):
+fresh session on each render.
 
 ``` r
 project_cache <- cachem::cache_disk("./readme_cache")
 aus <- get_geography("AUS", edition = 3, cache = project_cache)
 ```
 
-Or, set `ozgs.cache` as an option for use everywhere in your script,
+Or, set `ozgs.cache` as an option for use everywhere in your R script,
 with the same effect:
 
 ``` r
 options("ozgs.cache" = cachem::cache_disk("./readme_cache"))
+aus <- get_geography("AUS", edition = 3)
 ```

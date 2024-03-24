@@ -22,11 +22,11 @@ Imports:
     cachem,
     cli,
     purrr,
-    rlang
+    rlang,
+    stringr
 Depends: 
     R (>= 2.10)
 Suggests: 
     dplyr,
     knitr,
-    stringr,
     tidyr
