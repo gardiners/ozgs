@@ -37,9 +37,6 @@ poa <- new_getter("POA")
 #' @eval autodoc("RA")
 ra <- new_getter("RA")
 
-#' @eval autodoc("S")
-s <- new_getter("S")
-
 #' @eval autodoc("SA1")
 sa1 <- new_getter("SA1")
 

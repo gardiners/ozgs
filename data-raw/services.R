@@ -18,20 +18,21 @@ services_files <- c("1" = "data-raw/20240317_edition-1-2011.csv",
 services_raw <- services_files |>
   map(read_csv,
       skip = 2,
-      col_names = c("structure_name", "asgs_geography", "reference_date","url"),
+      col_names = c("structure_name", "description", "reference_date","url"),
       col_type = cols(
         .default = col_character(),
         reference_date = col_integer()
       )) |>
   list_rbind(names_to = "edition")
 
+# Extract ASGS geography name acronyms for use as identifiers
 services <- services_raw |>
-  mutate(geography = str_extract(asgs_geography,
-                                 r"((?<=\()[:upper:]+[:digit:]?)")) |>
+  mutate(geography = str_extract(description,
+                                 r"((?<=\()[[:upper:]/]+[:digit:]?)")) |>
   select(geography,
          edition,
          reference_date,
-         description = asgs_geography,
+         description,
          url)
 
 usethis::use_data(services, overwrite = TRUE, internal = TRUE)
