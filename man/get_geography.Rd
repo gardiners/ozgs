@@ -6,6 +6,7 @@
 \usage{
 get_geography(
   geography,
+  identifier = NULL,
   edition = NULL,
   reference_date = NULL,
   layer = c("gen", "full", "point"),
@@ -20,6 +21,14 @@ get_geography(
 \item{geography}{The name of the ASGS geography to download. Valid choices
 are ADD, AUS, CED, DZN, GCCSA, IARE, ILOC, IREG, LGA, MB, NRMR, POA, RA, S/T, SA1, SA2, SA3, SA4, ..., TR, and UCL.}
 
+\item{identifier}{An optional character vector of named features to download
+from the specified geography. For most ASGS geographies, these are
+human-friendly names like e.g. "Tasmania" (a feature within the STE
+geography), "Sydney" (a feature within the LGA geography) or "2150" (a
+feature within the POA geography). If specified, \code{identifier} takes
+precedence over \code{where}. If neither \code{identifier} nor \code{where} are specified,
+all of the features in the specified geography will be downloaded.}
+
 \item{edition}{An ASGS edition: \code{1}, \code{2}, or \code{3}.}
 
 \item{reference_date}{The geography's year of release. For most geographies,
@@ -30,13 +39,15 @@ supplied to uniquely identify a release.}
 
 \item{layer}{One of:
 \itemize{
-\item \code{"gen"}, the default. Fetches simplified geometries that have been generalised to 0.000025° or 2.5m.
-\item \code{"full"}, full ASGS geometries. Identical to ASGS Shapefile and Geopackage downloads.
+\item \code{"gen"}, the default. Fetches simplified geometries that have been
+generalised to 0.000025° or 2.5m.
+\item \code{"full"}, full ASGS geometries. Identical to ASGS Shapefile and Geopackage
+downloads.
 \item \code{"point"}, point geometries for each records in a geography.
 }}
 
-\item{where}{An optional SQL WHERE clause to filter the records returned by
-the request.}
+\item{where}{An optional SQL WHERE clause to filter the features returned by
+the request. Ignored if \code{identifier} is specified.}
 
 \item{filter_geom}{An optional \code{\link[sf:sfc]{sf::sfc}} or single \code{sf} geometry to filter
 the records returned by the request.}
