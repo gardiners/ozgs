@@ -18,7 +18,7 @@ get_geography(
 }
 \arguments{
 \item{geography}{The name of the ASGS geography to download. Valid choices
-are ADD, AUS, CED, DZN, GCCSA, IARE, ILOC, IREG, LGA, MB, NRMR, POA, RA, S, SA1, SA2, SA3, SA4, ..., TR, and UCL.}
+are ADD, AUS, CED, DZN, GCCSA, IARE, ILOC, IREG, LGA, MB, NRMR, POA, RA, S/T, SA1, SA2, SA3, SA4, ..., TR, and UCL.}
 
 \item{edition}{An ASGS edition: \code{1}, \code{2}, or \code{3}.}
 

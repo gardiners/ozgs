@@ -25,7 +25,7 @@ services_raw <- services_files |>
       )) |>
   list_rbind(names_to = "edition")
 
-# Extract ASGS geography name acronyms for use as identifiers
+# Extract ASGS geography name acronyms for use as identifiers:
 services <- services_raw |>
   mutate(geography = str_extract(description,
                                  r"((?<=\()[[:upper:]/]+[:digit:]?)")) |>
@@ -34,5 +34,15 @@ services <- services_raw |>
          reference_date,
          description,
          url)
+
+# The 3rd edition uses "S/T" as the acronym for the "State and Territory"
+# geography, where the 1st and 2nd editions use "STE". For consistency (and
+# because `s/t()` isn't a syntactic function name), make the "S/T" geography
+# accessible with the synonym "STE", as well as by "S/T":
+ste_synonym <- services |>
+  filter(geography == "S/T") |>
+  mutate(geography = "STE")
+services <- bind_rows(services, ste_synonym) |>
+  arrange(edition, reference_date, geography)
 
 usethis::use_data(services, overwrite = TRUE, internal = TRUE)

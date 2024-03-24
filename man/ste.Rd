@@ -55,5 +55,6 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    STE \tab 1 \tab 2011 \cr
    STE \tab 2 \tab 2016 \cr
+   STE \tab 3 \tab 2021 \cr
 }
 }
