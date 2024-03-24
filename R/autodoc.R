@@ -3,7 +3,7 @@
 #' @param geography_name Character string name of an ASGS geography, as defined
 #'   in the internal dataset `services$geography`.
 #'
-#' @return A character vector of Roxygen2 documentation for the geograpgy.
+#' @return A character vector of Roxygen2 documentation for the geography.
 #'
 #' @noRd
 rd_autodoc <- function(geography_name){
