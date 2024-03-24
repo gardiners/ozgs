@@ -65,14 +65,6 @@ get_geography <- function(geography,
   }
 }
 
-# Generate a geography-getter, given the name of an ASGS geography
-new_getter <- function(geography_name) {
-  args <- rlang::fn_fmls(get_geography)
-  args$geography <- NULL
-  geography <- geography_name
-  rlang::new_function(args, body = rlang::fn_body(get_geography))
-}
-
 get_service_url <- function(geography, edition, reference_date, layer) {
   url_suffix <- switch(layer,
                        "gen" = "/1",

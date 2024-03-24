@@ -1,3 +1,19 @@
+#' Generate a geography-getter, given the name of an ASGS geography
+#'
+#' @param geography_name Character string name of an ASGS geography, as defined
+#'   in the internal dataset `services$geography`.
+#'
+#' @return Returns a function that can be used to retrieve the specified ASGS
+#'   geograpgy, with further arguments as for [get_geography()].
+#'
+#' @noRd
+new_getter <- function(geography_name) {
+  args <- rlang::fn_fmls(get_geography)
+  args$geography <- NULL
+  geography <- geography_name
+  rlang::new_function(args, body = rlang::fn_body(get_geography))
+}
+
 #' @eval rd_autodoc("ADD")
 add <- new_getter("ADD")
 
