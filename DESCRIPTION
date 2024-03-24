@@ -1,6 +1,6 @@
 Package: ozgs
-Title: Access the Australian Statistical Geography Standard
-Version: 0.0.1
+Title: Use the Australian Statistical Geography Standard in R 
+Version: 0.0.1.9000
 Authors@R: 
     person("Sam", "Gardiner", , "sam.gardiner@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6752-6969"))
