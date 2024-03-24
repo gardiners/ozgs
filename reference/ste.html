@@ -49,6 +49,7 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ste</span><span class="op">(</span></span>
+<span>  identifier <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  edition <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  reference_date <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  layer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"gen"</span>, <span class="st">"full"</span>, <span class="st">"point"</span><span class="op">)</span>,</span>
@@ -62,7 +63,17 @@
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>edition</dt>
+    <dl><dt>identifier</dt>
+<dd><p>An optional character vector of named features to download
+from the specified geography. For most ASGS geographies, these are
+human-friendly names like e.g. "Tasmania" (a feature within the STE
+geography), "Sydney" (a feature within the LGA geography) or "2150" (a
+feature within the POA geography). If specified, <code>identifier</code> takes
+precedence over <code>where</code>. If neither <code>identifier</code> nor <code>where</code> are specified,
+all of the features in the specified geography will be downloaded.</p></dd>
+
+
+<dt>edition</dt>
 <dd><p>An ASGS edition: <code>1</code>, <code>2</code>, or <code>3</code>.</p></dd>
 
 
@@ -75,15 +86,17 @@ supplied to uniquely identify a release.</p></dd>
 
 
 <dt>layer</dt>
-<dd><p>One of:</p><ul><li><p><code>"gen"</code>, the default. Fetches simplified geometries that have been generalised to 0.000025° or 2.5m.</p></li>
-<li><p><code>"full"</code>, full ASGS geometries. Identical to ASGS Shapefile and Geopackage downloads.</p></li>
+<dd><p>One of:</p><ul><li><p><code>"gen"</code>, the default. Fetches simplified geometries that have been
+generalised to 0.000025° or 2.5m.</p></li>
+<li><p><code>"full"</code>, full ASGS geometries. Identical to ASGS Shapefile and Geopackage
+downloads.</p></li>
 <li><p><code>"point"</code>, point geometries for each records in a geography.</p></li>
 </ul></dd>
 
 
 <dt>where</dt>
-<dd><p>An optional SQL WHERE clause to filter the records returned by
-the request.</p></dd>
+<dd><p>An optional SQL WHERE clause to filter the features returned by
+the request. Ignored if <code>identifier</code> is specified.</p></dd>
 
 
 <dt>filter_geom</dt>
