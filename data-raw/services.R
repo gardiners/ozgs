@@ -8,8 +8,10 @@
 
 library(readr)
 library(dplyr)
+library(tidyr)
 library(purrr)
 library(stringr)
+library(arcgislayers)
 
 services_files <- c("1" = "data-raw/20240317_edition-1-2011.csv",
                     "2" = "data-raw/20240317_edition-2-2016.csv",
@@ -18,22 +20,31 @@ services_files <- c("1" = "data-raw/20240317_edition-1-2011.csv",
 services_raw <- services_files |>
   map(read_csv,
       skip = 2,
-      col_names = c("structure_name", "description", "reference_date","url"),
+      col_names = c("structure_name", "asgs_geography", "reference_date","url"),
       col_type = cols(
         .default = col_character(),
         reference_date = col_integer()
       )) |>
   list_rbind(names_to = "edition")
 
-# Extract ASGS geography name acronyms for use as identifiers:
 services <- services_raw |>
-  mutate(geography = str_extract(description,
-                                 r"((?<=\()[[:upper:]/]+[:digit:]?)")) |>
-  select(geography,
-         edition,
-         reference_date,
-         description,
-         url)
+  mutate(
+    # Extract ASGS geography name acronyms for use as identifiers:
+    geography = str_extract(asgs_geography,
+                            r"((?<=\()[[:upper:]/]+[:digit:]?)"),
+    # Retrieve service description for each geography from the API:
+    description = map_chr(url,
+                          \(url) arc_open(url)$description),
+    # Retrieve the name of the identifier ("Display Field") for each service.
+    # This should be the same for each of the three layers provided by each
+    # service, so use the identifier specified in the first layer's metadata:
+    identifier_raw = map_chr(paste0(url, "/0"),
+                             \(url) arc_open(url)$displayField),
+    identifier = str_to_lower(identifier_raw)) |>
+  fill(structure_name)
+
+# Identify the feature name field associated with each geometry:
+
 
 # The 3rd edition uses "S/T" as the acronym for the "State and Territory"
 # geography, where the 1st and 2nd editions use "STE". For consistency (and
@@ -43,6 +54,6 @@ ste_synonym <- services |>
   filter(geography == "S/T") |>
   mutate(geography = "STE")
 services <- bind_rows(services, ste_synonym) |>
-  arrange(edition, reference_date, geography)
+  arrange(edition, structure_name, reference_date, geography)
 
 usethis::use_data(services, overwrite = TRUE, internal = TRUE)

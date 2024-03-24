@@ -28,4 +28,5 @@ Depends:
 Suggests: 
     dplyr,
     knitr,
-    stringr
+    stringr,
+    tidyr
