@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Urban Centres and Localities (UCLs).
+Fetch ASGS geometries for the \strong{Urban Centres and Localities (UCLs)} geography.
 }
 \details{
+Urban Centres and Localities (UCLs) represent areas of concentrated urban development. These areas of urban development are primarily identified using dwelling and population density criteria and data from the 2021 Census.
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    UCL \tab 1 \tab 2011 \cr
@@ -58,3 +62,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    UCL \tab 3 \tab 2021 \cr
 }
 }
+

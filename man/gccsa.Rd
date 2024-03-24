@@ -48,9 +48,15 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Greater Capital City Statistical Areas (GCCSAs).
+Fetch ASGS geometries for the \strong{Greater Capital City Statistical Areas (GCCSAs)} geography.
 }
 \details{
+Greater Capital City Statistical Areas (GCCSA) are geographical areas built from Statistical Areas Level 4 (SA4).
+
+Further information about these regions can be found in the following publication: \href{https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026}{Australian Statistical Geography Standard (ASGS) Edition 3}
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    GCCSA \tab 1 \tab 2011 \cr
@@ -58,3 +64,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    GCCSA \tab 3 \tab 2021 \cr
 }
 }
+

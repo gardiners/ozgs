@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Section of State (SOS).
+Fetch ASGS geometries for the \strong{Section of State (SOS)} geography.
 }
 \details{
+Section of State (SOS) is created by grouping together Urban Centres and Localities (UCLs) into broad classes based on population size. The population sizes are based on the 2021 Census of Population and Housing.
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    SOS \tab 1 \tab 2011 \cr
@@ -58,3 +62,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    SOS \tab 3 \tab 2021 \cr
 }
 }
+

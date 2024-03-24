@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Significant Urban Areas (SUAs).
+Fetch ASGS geometries for the \strong{Significant Urban Areas (SUAs)} geography.
 }
 \details{
+Significant Urban Areas (SUA) represent significant towns and cities of 10,000 people or more. They are based on Urban Centres and Localities (UCLs) but are defined by the larger Statistical Areas Level 2 (SA2s).
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    SUA \tab 1 \tab 2011 \cr
@@ -58,3 +62,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    SUA \tab 3 \tab 2021 \cr
 }
 }
+

@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Local Government Areas (LGAs).
+Fetch ASGS geometries for the \strong{Local Government Areas (LGAs)} geography.
 }
 \details{
+Local Government Areas (LGAs) are an ABS Mesh Block representation of gazetted local government boundaries as defined by each state and territory. Please note that ABS approximated boundaries do not match official legal or administrative boundaries and should only be used for statistical purposes. Officially gazetted Local Government Areas change regularly. The ABS updates approximated Local Government Areas annually. Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS) Edition 3 https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    LGA \tab 1 \tab 2011 \cr
@@ -68,3 +72,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    LGA \tab 3 \tab 2023 \cr
 }
 }
+

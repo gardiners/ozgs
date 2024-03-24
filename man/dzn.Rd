@@ -48,12 +48,17 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Destination Zones (DZNs).
+Fetch ASGS geometries for the \strong{Destination Zones (DZNs)} geography.
 }
 \details{
+Destination Zones are co-designed with state and territory transport authorities. DZNs are designed from either whole or aggregations of Mesh Blocks (MB) and they align to Statistical Area Level 2 boundaries. They have no relationship to Statistical Area Level 1 boundaries. Destination Zones were incorporated as part of the ASGS for the first time in 2021. Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS) Edition 3 https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    DZN \tab 2 \tab 2016 \cr
    DZN \tab 3 \tab 2021 \cr
 }
 }
+

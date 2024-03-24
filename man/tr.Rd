@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Tourism Regions (TRs).
+Fetch ASGS geometries for the \strong{Tourism Regions (TRs)} geography.
 }
 \details{
+Tourism Regions (TRs) are an ABS SA2 approximation of tourism regions as provided by Tourism Research Australia. They are administrative regions primarily used by Tourism Research Australia for research and policy purposes. Please note that ABS approximated boundaries do not match official legal or administrative boundaries and should only be used for statistical purposes. Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS) Edition 3 https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    TR \tab 1 \tab 2015 \cr
@@ -58,3 +62,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    TR \tab 3 \tab 2021 \cr
 }
 }
+

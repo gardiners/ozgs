@@ -2,7 +2,7 @@
 % Please edit documentation in R/getters.R
 \name{add}
 \alias{add}
-\title{Australian Drainage Division (ADDs)}
+\title{Australian Drainage Divisions (ADDs)}
 \usage{
 add(
   edition = NULL,
@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Australian Drainage Division (ADDs).
+Fetch ASGS geometries for the \strong{Australian Drainage Divisions (ADDs)} geography.
 }
 \details{
+Australian Drainage Divisions (ADDs) are an ABS Mesh Block approximation of drainage divisions as provided through the Australian Hydrological Geospatial Fabric (V3.2.1).  Please note that ABS approximated boundaries do not match official legal or administrative boundaries and should only be used for statistical purposes. Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS) Edition 3 https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    ADD \tab 1 \tab 2011 \cr
@@ -58,3 +62,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    ADD \tab 3 \tab 2021 \cr
 }
 }
+

@@ -48,9 +48,15 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Statistical Areas Level 1 (SA1s).
+Fetch ASGS geometries for the \strong{Statistical Areas Level 1 (SA1s)} geography.
 }
 \details{
+Statistical Areas Level 1 are geographical areas built from whole Mesh Blocks. Whole SA1s aggregate to form Statistical Areas Level 2 in the ASGS Main Structure.
+
+Further information about these regions can be found in the following publication: \href{https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026}{Australian Statistical Geography Standard (ASGS) Edition 3}
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    SA1 \tab 1 \tab 2011 \cr
@@ -58,3 +64,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    SA1 \tab 3 \tab 2021 \cr
 }
 }
+

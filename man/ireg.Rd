@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Indigenous Regions (IREGs).
+Fetch ASGS geometries for the \strong{Indigenous Regions (IREGs)} geography.
 }
 \details{
+Indigenous Regions (IREGs) are large geographic areas built from whole Indigenous Areas. Changes to Indigenous Regions are determined through consultation with the Centre for Aboriginal and Torres Strait Islander Statistics based on statistical and community requirements. Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS) Edition 3 https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    IREG \tab 1 \tab 2011 \cr
@@ -58,3 +62,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    IREG \tab 3 \tab 2021 \cr
 }
 }
+

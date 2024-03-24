@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Remoteness Areas (RAs).
+Fetch ASGS geometries for the \strong{Remoteness Areas (RAs)} geography.
 }
 \details{
+The Remoteness Areas divide Australia into 5 classes of remoteness on the basis of relative access to services for the purpose of releasing and analysing statistical data. Access to services is measured using the Accessibility and Remoteness Index of Australia (ARIA+), provided by the Hugo Centre for Migration and Population Research at the University of Adelaide. Remoteness Areas are aggregates of Statistical Areas Level 1 (SA1s) that are grouped together based on their average ARIA+ score. These areas are redefined every five years and data from the Census of Population and Housing as well as other survey data are released on the Remoteness Areas.
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    RA \tab 1 \tab 2011 \cr
@@ -58,3 +62,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    RA \tab 3 \tab 2021 \cr
 }
 }
+

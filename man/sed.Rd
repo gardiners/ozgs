@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for State Electoral Divisions (SEDs).
+Fetch ASGS geometries for the \strong{State Electoral Divisions (SEDs)} geography.
 }
 \details{
+State Electoral Divisions (SED) are an ABS Mesh Block approximation of state electoral districts. A state electoral district is an area legally prescribed for the purpose of returning one or more members to the State or Territory Lower Houses of Parliament, or the relevant equivalent. Boundaries are based on the most up to date state electoral districts available prior to publication. State Electoral Divisions may change as State or Territory authorities revise their boundaries. Where this occurs, State Electoral Divisions will be updated on an annual basis in conjunction with updates of other Non ABS Structures. Please note that ABS approximated boundaries do not match official legal or administrative boundaries and should only be used for statistical purposes. Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS) Edition 3 https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    SED \tab 1 \tab 2011 \cr
@@ -63,3 +67,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    SED \tab 3 \tab 2022 \cr
 }
 }
+

@@ -2,7 +2,7 @@
 % Please edit documentation in R/getters.R
 \name{ssc}
 \alias{ssc}
-\title{State Suburb (SSCs)}
+\title{State Suburbs (SSCs)}
 \usage{
 ssc(
   edition = NULL,
@@ -48,12 +48,17 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for State Suburb (SSCs).
+Fetch ASGS geometries for the \strong{State Suburbs (SSCs)} geography.
 }
 \details{
+State Suburbs (SSCs) are an ABS approximation of localities gazetted by the Geographical Place Name authority in each State and Territory. Gazetted Localities are the officially recognised boundaries of suburbs (in cities and larger towns) and localities (outside cities and larger towns). Gazetted Localities cover most of Australia. Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS): Volume 3 - Non ABS Structure, July 2016 (cat no. 1270.0.55.003). http://www.abs.gov.au/ausstats/abs@.nsf/mf/1270.0.55.003
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    SSC \tab 1 \tab 2011 \cr
    SSC \tab 2 \tab 2016 \cr
 }
 }
+

@@ -2,7 +2,7 @@
 % Please edit documentation in R/getters.R
 \name{poa}
 \alias{poa}
-\title{Postal Area (POAs)}
+\title{Postal Areas (POAs)}
 \usage{
 poa(
   edition = NULL,
@@ -48,9 +48,13 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Postal Area (POAs).
+Fetch ASGS geometries for the \strong{Postal Areas (POAs)} geography.
 }
 \details{
+Postal Areas (POAs) are an ABS Mesh Block approximation of a general definition of postcodes. A postcode is a four digit number used by Australia Post to assist with mail delivery. Postcodes cover most, but not all, of Australia whereas Postal Areas cover the whole of geographic Australia. Please note that ABS approximated boundaries do not match official legal or administrative boundaries and should only be used for statistical purposes. Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS) Edition 3 https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    POA \tab 1 \tab 2011 \cr
@@ -58,3 +62,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    POA \tab 3 \tab 2021 \cr
 }
 }
+

@@ -2,7 +2,7 @@
 % Please edit documentation in R/getters.R
 \name{nrmr}
 \alias{nrmr}
-\title{Natural Resource Management Regions (NRMRs)}
+\title{National Resource Management Regions (NRMRs)}
 \usage{
 nrmr(
   edition = NULL,
@@ -48,12 +48,17 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Natural Resource Management Regions (NRMRs).
+Fetch ASGS geometries for the \strong{National Resource Management Regions (NRMRs)} geography.
 }
 \details{
+Natural Resource Management Regions (NRMRs) are an ABS approximation of Natural Resource Management regions (NRM). They are administrative regions primarily used by the Department of the Environment and Energy and the Department of Agriculture and Water Resources who share responsibility for delivery of the Australian Government's environment and sustainable agriculture programs, which are broadly referred to as Natural Resource Management (NRM). Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS): Volume 3 - Non ABS Structure, July 2016 (cat no. 1270.0.55.003). http://www.abs.gov.au/ausstats/abs@.nsf/mf/1270.0.55.003
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    NRMR \tab 1 \tab 2011 \cr
    NRMR \tab 2 \tab 2016 \cr
 }
 }
+

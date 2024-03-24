@@ -48,11 +48,16 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for Suburbs and Localities (SALs).
+Fetch ASGS geometries for the \strong{Suburbs and Localities (SALs)} geography.
 }
 \details{
+Suburbs and Localities (SALs), formerly State Suburbs (SSCs), are an ABS Mesh Block approximation of gazetted localities. Gazetted localities refer to boundaries of suburbs in cities and larger towns and localities in other locations. Gazetted localities cover most of Australia. Please note that ABS approximated boundaries do not match official legal or administrative boundaries and should only be used for statistical purposes. Further information about these regions can be found in the following publication: Australian Statistical Geography Standard (ASGS) Edition 3 https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    SAL \tab 3 \tab 2021 \cr
 }
 }
+

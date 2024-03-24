@@ -2,7 +2,7 @@
 % Please edit documentation in R/getters.R
 \name{ste}
 \alias{ste}
-\title{State and Territory (STE)}
+\title{State and Territory (S/T)}
 \usage{
 ste(
   edition = NULL,
@@ -48,9 +48,19 @@ geometries and data, supply an object created by \code{\link[cachem:cache_disk]{
 \item{...}{Additional arguments passed to \code{\link[arcgislayers:arc_read]{arcgislayers::arc_read()}}.}
 }
 \description{
-Fetch ASGS geometries for State and Territory (STE).
+Fetch ASGS geometries for the \strong{State and Territory (S/T)} geography.
 }
 \details{
+States and Territories consist of one or more Statistical Areas Level 4 (SA4).
+
+Six States and six Territories are recognised in the ASGS:
+
+New South Wales, Victoria, Queensland, South Australia, Western Australia, Tasmania, Northern Territory, Australian Capital Territory, Jervis Bay Territory, Territory of Christmas Island, Territory of the Cocos (Keeling) Islands, and Territory of Norfolk Island.
+
+Further information about these regions can be found in the following publication: \href{https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026}{Australian Statistical Geography Standard (ASGS) Edition 3}
+}
+\section{Availability}{
+
 The following combinations of ASGS \code{edition} and \code{reference_date} are available:\tabular{llr}{
    \strong{\code{geography}} \tab \strong{\code{edition}} \tab \strong{\code{reference_date}} \cr
    STE \tab 1 \tab 2011 \cr
@@ -58,3 +68,4 @@ The following combinations of ASGS \code{edition} and \code{reference_date} are 
    STE \tab 3 \tab 2021 \cr
 }
 }
+
